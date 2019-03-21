@@ -7,15 +7,15 @@ Action wraps the [Sentry CLI](https://docs.sentry.io/cli/) to enable Sentry rele
 An example workflow to build a docker container from source and push and release the image to an existing application on Heroku:
 
 ```hcl
-workflow "Create new Sentry Release" {
+workflow "Create new Sentry Release Version" {
   on = "push"
-  resolves = "release"
+  resolves = "release version"
 }
 
-action "release" {
-  uses = "juankaram/sentry-action@master"
+action "release version" {
+  uses = "juankaram/sentry@master"
   needs = "push"
-  args = "juankaram/sentry-action"
+  args = "releases propose-version"
   secrets = ["SENTRY_AUTH_TOKEN"]
   env = {
     SENTRY_ORG     = "foo"
@@ -35,7 +35,8 @@ action "release" {
 - `SENTRY_URL` - **Optional**. The URL to use to connect to sentry. This defaults to https://sentry.io/.
 
 ## Attribution
-Heavily inspired by [GitHub Actions](https://github.com/actions). 
+
+Heavily inspired by [GitHub Actions](https://github.com/actions).
 
 ## License
 
