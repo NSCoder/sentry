@@ -1,4 +1,4 @@
-FROM getsentry/sentry-cli:1.40.0
+FROM getsentry/sentry-cli:1.44.3
 
 LABEL "name"="sentry"
 LABEL "maintainer"="Juan Karam <public.juan.karam@me.com>"
